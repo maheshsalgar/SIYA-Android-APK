@@ -64,7 +64,7 @@ jobs:
 
       - name: Add SIYA logo as app icon
         run: |
-          LOGO=$(ls -1 *.png *.PNG *.jpg *.JPG *.jpeg *.JPEG *.webp 2>/dev/null | head -n 1)
+         sudo apt-get update -qq && sudo apt-get install -y -qq imagemagick LOGO=$(ls -1 *.png *.PNG *.jpg *.JPG *.jpeg *.JPEG *.webp 2>/dev/null | head -n 1)
           if [ -z "$LOGO" ]; then echo "No logo image found - default icon will be used"; exit 0; fi
           echo "Using logo: $LOGO"
           IM=convert
